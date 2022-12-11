@@ -119,14 +119,13 @@ class Swimming(Training):
 def read_package(workout_type: str, data: List[int]) -> Training:
     """Прочитать данные полученные от датчиков."""
     workout_types: Dict[str, Training] = {
-        'SWM': Swimming,
-        'RUN': Running,
-        'WLK': SportsWalking
+        "SWM": Swimming,
+        "RUN": Running,
+        "WLK": SportsWalking
     }
     if workout_type not in workout_types:
         raise KeyError("Wrong workout type.")
-    workout_class: Training = workout_types[workout_type](*data)
-    return workout_class
+    return workout_types[workout_type](*data)
 
 
 def main(training: Training) -> InfoMessage:
@@ -135,11 +134,11 @@ def main(training: Training) -> InfoMessage:
     print(info.get_message())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     packages = [
-        ('SWM', [720, 1, 80, 25, 40]),
-        ('RUN', [15000, 1, 75]),
-        ('WLK', [9000, 1, 75, 180]),
+        ("SWM", [720, 1, 80, 25, 40]),
+        ("RUN", [15000, 1, 75]),
+        ("WLK", [9000, 1, 75, 180]),
     ]
 
     for workout_type, data in packages:
